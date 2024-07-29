@@ -1,0 +1,58 @@
+% Use the section* to for a more clear section break, assignments are not long documents they do not need an index 
+\section*{Question Example}
+
+A partition of a natural number $ n \ge 1 $ is any sequence of positive integers $ (a_1 , . . . , a_k ) $ such
+that $ a_1 \ge a_2 \ge . . . \ge a_k $ and $ n = a_1 + a_2 + . . . + a_k $ . For example, partitions of $ n = 4 $ are
+$ (1, 1, 1, 1) $, $ (2, 1, 1) $, $ (2, 2) $, $ (3, 1) $, $ (4) $. Numbers $ a_1 , . . . , a_k $ in a partition are called parts.
+
+
+
+For natural numbers $ n, m \ge 1, m < n $, let $ A_{n,m} $ denote the collection of all partitions of $ n $ into
+exactly $ m $ parts, and let $ B_{n,m} $ denote the collection of all partitions of $ n $ into at most $ m $ parts.
+For example, $A_{4,2} = \{(2, 2), (3, 1)\} $ and $B_{4,2} = \{(2, 2), (3, 1), (4)\} $.
+
+
+Task: Prove $ |A_{n,m}| = |B_{n-m,m}| $. In words, the number of partitions of a number n into
+exactly $ m $ parts is equal to the number of partitions of $ n - m $ into at most $ m $ parts.
+
+
+Hint: Observe that if $ n = a_1 + \dots + a_m $, then $ n - m = (a_1 -1) + \dots + (a_m - 1) $.
+
+\begin{solution}
+
+  % Function A -> B 
+  
+  Let $\phi$ denote the function $ \phi: A_{n,m} \rightarrow B_{n-m,m}$, defined as $\phi = g_1f_1$,
+
+  Where $f_1$ is a function defined as $$ f_1((a_1 + \dots + a_m)) = ((a_1 - 1) + \dots + (a_m - 1)) $$ 
+
+  And $g_1$ is a function defined as $$ g_1((a_1 + \dots + a_m)) = (a_1 + \dots + a_k)\;\; \text{where $ k = m - |\:\{ a_i \in \{a_1,\dots,a_m\} \;|\; a_i = 0 \}\:|$} $$
+
+  In words, $\phi$ is a function that subtracts 1 from each integer in the sequence and then removes all 0's from the sequence by slicing off the end of the sequence, 
+  the amount sliced off is equal to the difference between m and the number of 0's in the sequence. This is done to make sure the sequence is stil an integer partition.
+
+  Note that, $n = a_1 + \dots + a_m \implies n - m = ((a_1 - 1) + \dots (a_m - 1))$\\
+
+  % Function B -> A 
+  Let $\beta_m$ denote the function $ \beta_m: B_{n-m,m} \rightarrow A_{n,m}$ defined as,
+
+  $$ \beta_m((a_1 + \dots + a_k)) = ((a_1 + 1_1) + \dots + (a_k+1_k) + \dots + 1_m) $$
+  
+  In words, $\beta_m$ merges the sequence $ 1_1 + \dots + 1_m $ to the input sequence. Note
+  that the image will always have exactly $m$ parts and that any element in $B_{n-m,m}$ will 
+  result in one distinct element of $A_{n,m}$.
+
+  % Inverse 
+  Now, $|A_{n,m}| = |B_{n-m,m}|$ if and only if $\beta_m\phi = e$.
+
+  \begin{align*}
+    \beta_m\phi((a_1 +\dots+ a_m)) = \beta_m(((a_1-1) + \dots + (a_k - 1))) \\    
+    = ((a_1) +\dots+ (a_k) + \dots + 1_m) \\
+    = a_1 + \dots + a_m \\
+  \end{align*}
+
+  Therefore it is clear to see that for any sequence in $A_{n,m}$, $\;\beta_m\phi = e$. Therefore $\beta_m$ is an inverse of $\phi$ therefore $\phi$ is bijective. Therefore $ |A_{n,m}| = |B_{n-m,m}|$. 
+
+
+\end{solution}
+ 

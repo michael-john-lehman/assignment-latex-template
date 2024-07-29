@@ -1,0 +1,20 @@
+% Specify documentclass. 
+\documentclass[11pt,answers]{exam}
+
+% Use package import, this should allow easy importing other .tex files
+\usepackage{import}
+
+% Import the entry tex file, this should be where the rest of the setup should go. 
+\import{}{src/entry.tex} 
+
+% Begin document  
+\begin{document}
+% Make title, then new page. 
+\maketitle
+\newpage
+
+% Example: 
+%  \import{}{src/Q1.tex} 
+%  \newpage ? optional 
+  
+\end{document}

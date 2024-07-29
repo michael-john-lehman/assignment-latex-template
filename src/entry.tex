@@ -1,0 +1,70 @@
+\usepackage{mathpazo}
+\usepackage{euler}
+\usepackage{amsmath} 
+\usepackage{empheq}
+\usepackage{amssymb,mathtools} 
+\usepackage{accents}
+\usepackage{graphicx} 
+\usepackage{amsthm}
+\usepackage{ragged2e,bm}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{amsthm,relsize}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{mdframed}
+\usepackage{color}
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\newmdtheoremenv{theo}{Theorem}
+\newenvironment{ftheo}
+  {\begin{mdframed}\begin{theo}}
+  {\end{theo}\end{mdframed}}
+\usepackage{amsfonts}
+\usepackage{centernot}
+
+% Imports config.tex 
+% The rest of the head should use the commands set in config.tex
+\import{}{src/config.tex} 
+
+
+%% I prefer a bold  "proof":
+
+    \let\oldproofname=\proofname
+		\renewcommand{\proofname}{\rm\bf{\oldproofname}}
+
+%% Theorem enviroment(s)
+		\newtheorem{theorem}{Theorem}[section]
+		\newtheorem{corollary}{Corollary}[section]
+		\newtheorem{lemma}{Lemma}[section]
+		\newtheorem{proposition}{Proposition}[section]
+		\newtheorem{definition}{Definition}[section]
+		\newtheorem{example}{Example}[section]
+		\theoremstyle{definition}
+		\newtheorem*{remark}{Remark}
+
+%% Heading 
+
+\pagestyle{headandfoot}
+  \lhead{\Author}
+	\rhead{\AssignmentNum, Due: \DueDate} 
+	\chead{\CourseLong}
+
+	\headrule
+	\runningheader{\Author}{\CourseLong}{\AssignmentNum, Due: \DueDate}
+	\footer{}{Page \thepage\ of \numpages}{}
+	\extrawidth{2.5cm}
+	\extrafootheight{-.8in}
+	\extraheadheight{-.7in}
+  \title{\CourseLong\space\AssignmentLong}
+	\author{\Author} 
+
+
